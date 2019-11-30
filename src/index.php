@@ -2,5 +2,9 @@
 
 
 require_once realpath(dirname(__FILE__).'/config/config.php');
-$conexao = new Database();
-var_dump($conexao->getconection());
+require_once MODEL_PATH.'/usuario.php';
+
+$usuario = new Usuario(["primeiro_nome"=>"Thecio"]);
+
+var_dump($usuario);
+
