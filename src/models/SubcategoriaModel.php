@@ -7,8 +7,12 @@ class CategoriaModel{
   public static function listarTodos(){
 
     $conexao = Database::getConection();
-    $sql = "SELECT * FROM categorias";
-    $resultado = $conexao->query($sql) or die ("erro ao listar todas as categorias").mysql_error();
+    $sql = "SELECT subcategorias.id_subcategorias as id,
+    subcategorias.nome as subcategorias,
+    categorias.nome as categorias
+    FROM subcategorias, categorias 
+    WHERE subcategorias.id_subcategorias = categorias.id_categoria";
+    $resultado = $conexao->query($sql) or die ("erro ao listar todas as subcategorias").mysql_error();
 
     if ($resultado) {
       return $resultado;
@@ -17,6 +21,20 @@ class CategoriaModel{
     }
     
   }
+
+  public static function listarCategoriasModal(){
+
+    $conexao = Database::getConection();
+    $sql = "SELECT * FROM categorias";
+    $resultado = $conexao->query($sql) or die ("erro ao listar todas as categorias").mysql_error();
+
+    if ($resultado) {
+      return $resultado;
+    } else {
+      return false;
+    }
+  }
+
   public function incluir($dados){
     var_dump($dados);
     $conexao = Database::getConection();
