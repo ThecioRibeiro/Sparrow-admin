@@ -1,4 +1,7 @@
-<?php require_once realpath(dirname(__FILE__).'/src/models/subcategoriaModel.php');?>
+<?php 
+  require_once realpath(dirname(__FILE__).'/src/models/SubcategoriaModel.php');
+  require_once realpath(dirname(__FILE__).'/src/models/CategoriaModel.php');
+?>
 <!DOCTYPE html>
 <!--
 This is a starter template page. Use this page to start your new project from
@@ -73,16 +76,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 <label for="">Nome da subcategoria</label>
                                 <input type="text" class="form-control" name="txtNomeCategoria" required>
                                 
-                                <select class="form-control">                             
+                                <select name="idcategoria" class="form-control">                             
                                 <?php
                       
 
-                      $listaCategorias = CategoriaModel::listarCategoriasModal(); 
+                            $listaCategorias = CategoriaModel::listarTodos(); 
 
-                        foreach ($listaCategorias as $categoria) {              
-                          echo("<option>".$categoria['nome']."</option>");
-                      }                                    
-                      ?>
+                              foreach ($listaCategorias as $categoria) {              
+                                echo("<option value=".$categoria['id_categoria']." >".$categoria['nome']."</option>");
+                            }                                    
+                            ?>
                       </select>
 
 
@@ -118,7 +121,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                       <?php
                       
 
-                      $listaCategorias = CategoriaModel::listarTodos();
+                      $listaCategorias = SubcategoriaModel::listarTodos();
                       
                         foreach ($listaCategorias as $categoria) {
                 
@@ -158,7 +161,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             <div class="col-md-12">
                               <div class="form-group">
                                 <label for="">Nome da subcategoria</label>
-                                <input type="text" class="form-control" name="txtNomeCategoria" required>
+                                <input type="text" class="form-control" name="" required>
                               </div>
                             </div>
                           </div>                       

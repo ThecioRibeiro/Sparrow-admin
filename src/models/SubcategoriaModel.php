@@ -2,7 +2,7 @@
 
 require_once realpath(dirname(__FILE__,2).'/config/config.php');
 
-class CategoriaModel{
+class SubcategoriaModel{
 
   public static function listarTodos(){
 
@@ -39,8 +39,9 @@ class CategoriaModel{
     var_dump($dados);
     $conexao = Database::getConection();
     $nome = $dados['txtNomeCategoria'];
-    $novo = $conexao->prepare("INSERT INTO categorias (nome) VALUES(?)");
-    $novo->bind_param('s', $nome);
+    $idSubcategoria = $dados['idcategoria'];
+    $novo = $conexao->prepare("INSERT INTO subcategorias (nome,id_categorias) VALUES(?,?)");
+    $novo->bind_param('si', $nome, $idSubcategoria);
     $novo->execute();
 
     if ($novo->affected_rows > 0) {
@@ -60,7 +61,7 @@ class CategoriaModel{
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-  $categoria = new CategoriaModel;
+  $categoria = new SubcategoriaModel;
   var_dump($_POST);
 
   $acao  = ($_POST['acao']);

@@ -1,5 +1,5 @@
 <!-- jQuery -->
-<script src="plugins/jquery/jquery.min.js"></script>
+<script src="node_modules/jquery/dist/jquery.min.js"></script>
 <script src="dist/js/vendors/jquery.mask.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
     <script src="dist/js/vendors/jquery.dataTables.min.js"></script>
