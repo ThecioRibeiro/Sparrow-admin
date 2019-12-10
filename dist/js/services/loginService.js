@@ -10,7 +10,7 @@ $('#formLogin').on("submit", function (event) {
           $("#btnLogin").html('<span class="spinner-border spinner-border-sm"></span> aguarde..');
       },
       success: function (retorno) {
-          var res = JSON.parse(retorno)
+          var res = JSON.parse(retorno);
 
           if (res.logado == true) {
 
